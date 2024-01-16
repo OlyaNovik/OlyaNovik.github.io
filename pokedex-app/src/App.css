@@ -2,5 +2,43 @@
   text-align: center;
 }
 .pokemon_list{
+  width: 800px;
+  display: grid;
+  grid-template-columns: repeat(3, 0.5fr); 
+  gap: 3px; 
+}
+.group_container{
+  display: flex;
+}
+.img_info{
+  width: 90%;
+  height: 100px;
+  border: 1px solid black;
+  margin-top: 10px;
+    
+}
+.btn_load_more{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  margin: 20px 0 20px 150px;
   
 }
+
+table {
+  table-layout: fixed;
+  width: 90%;
+  border-collapse: collapse;
+  border: 3px solid black;
+}
+td{
+  border: 1px solid black;
+}
+
