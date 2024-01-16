@@ -3,6 +3,27 @@ import React, { useState, useEffect } from 'react';
 
 const PokemonPage = (props)=>{
     const [infoPakemon, setInfoPakemon] = useState(null);
+    const [colorBtn,SetColorBtn] = useState('blue')
+    const btn_types={
+        width: "35%",
+        fontSize: "10px",
+        textAlign: "center",
+        height: "25px",
+        border: "none",
+        borderRadius: "5px",
+        color: "white",
+        backgroundColor: colorBtn,
+        marginRight: "5px"
+    }
+    const typeColorMapping = {
+        fire: 'red',
+        grass: 'green',
+        water: 'blue',
+        poison: 'purple',
+        flying: 'skyblue',
+        bug: 'brown',
+        normal: 'grey'
+    };
 
     useEffect(() => {
       const fetchData = async () => {
@@ -21,7 +42,6 @@ const PokemonPage = (props)=>{
     if (!infoPakemon) {
       return <div>Loading...</div>;
     }
-    // console.log(infoPakemon);
     return (
         
         <div onClick={props.onClick} className={s.container} id={infoPakemon.id}>
@@ -31,7 +51,7 @@ const PokemonPage = (props)=>{
           <p className={s.Name}>{props.data.name}</p>
           <div className={s.types}>
           {infoPakemon.types.map((types, index) => (
-        <button key={index+2332} className={s.btn_types}>{types.type.name}</button>
+        <button key={index+2332} style={{ ...btn_types, backgroundColor: typeColorMapping[types.type.name] }}>{types.type.name}</button>
         ))}
           </div>
         </div>
